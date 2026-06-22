@@ -5,28 +5,24 @@ export default function Navbar() {
   const { user, logout, isAuthenticated } = useAuth0();
   if (!isAuthenticated) return null;
   return (
-    <nav
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 16,
-        marginBottom: 24,
-      }}
-    >
-      <Link to="/">Dashboard</Link>
-      <Link to="/create">Create Task</Link>
-      <Link to="/profile">Profile</Link>
-      <span style={{ marginLeft: "auto" }}>
-        {user?.email}
-        <button
-          style={{ marginLeft: 16 }}
-          onClick={() =>
-            logout({ logoutParams: { returnTo: window.location.origin } })
-          }
-        >
-          Log Out
-        </button>
-      </span>
+    <nav>
+      <div className="nav-content">
+        <div className="nav-links">
+          <Link to="/">Dashboard</Link>
+          <Link to="/create">Create Task</Link>
+          <Link to="/profile">Profile</Link>
+        </div>
+        <div className="nav-user">
+          <span>{user?.email}</span>
+          <button
+            onClick={() =>
+              logout({ logoutParams: { returnTo: window.location.origin } })
+            }
+          >
+            Log Out
+          </button>
+        </div>
+      </div>
     </nav>
   );
 }

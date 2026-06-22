@@ -15,11 +15,18 @@ import Profile from "./pages/Profile";
 import { TaskProvider } from "./context/TaskContext";
 import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from "./components/Navbar";
+import "./App.css";
 
 function PrivateRoute({ children }: { children: React.ReactElement }) {
   const { isAuthenticated, isLoading } = useAuth0();
   const location = useLocation();
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="loading" style={{ minHeight: "100vh" }}>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

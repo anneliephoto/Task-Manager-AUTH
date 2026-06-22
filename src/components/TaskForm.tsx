@@ -22,23 +22,44 @@ export function TaskForm({ onSubmit, initial }: TaskFormProps) {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<div>
-				<label>Title</label>
-				<input value={title} onChange={e => setTitle(e.target.value)} required />
+			<div className="form-group">
+				<label htmlFor="title">Task Title</label>
+				<input
+					id="title"
+					value={title}
+					onChange={e => setTitle(e.target.value)}
+					placeholder="Enter a task title..."
+					required
+				/>
 			</div>
-			<div>
-				<label>Description</label>
-				<textarea value={description} onChange={e => setDescription(e.target.value)} required />
+
+			<div className="form-group">
+				<label htmlFor="description">Description</label>
+				<textarea
+					id="description"
+					value={description}
+					onChange={e => setDescription(e.target.value)}
+					placeholder="Enter a detailed description..."
+					required
+				/>
 			</div>
-			<div>
-				<label>Status</label>
-				<select value={status} onChange={e => setStatus(e.target.value as Task["status"])}>
+
+			<div className="form-group">
+				<label htmlFor="status">Status</label>
+				<select
+					id="status"
+					value={status}
+					onChange={e => setStatus(e.target.value as Task["status"])}
+				>
 					<option value="todo">To Do</option>
 					<option value="in-progress">In Progress</option>
 					<option value="done">Done</option>
 				</select>
 			</div>
-			<button type="submit">Save</button>
+
+			<button type="submit" className="btn btn-primary">
+				Save Task
+			</button>
 		</form>
 	);
 }

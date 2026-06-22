@@ -13,9 +13,16 @@ export default function CreateTask() {
   };
 
   return (
-    <div>
-      <h1>Create Task</h1>
-      <TaskForm onSubmit={handleCreate} />
+    <div className="app-container">
+      <div style={{ maxWidth: "600px" }}>
+        <h1>Create New Task</h1>
+        <p style={{ marginBottom: "2rem", color: "var(--text-secondary)" }}>
+          Add a new task to your task list. Fill in the details below to get started.
+        </p>
+        <div className="card">
+          <TaskForm onSubmit={handleCreate} />
+        </div>
+      </div>
     </div>
   );
 }
