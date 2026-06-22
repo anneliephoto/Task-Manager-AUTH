@@ -2,6 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Login() {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+  const returnTo = `${window.location.origin}${import.meta.env.BASE_URL}`;
 
   return (
     <div className="login-container">
@@ -15,7 +16,11 @@ export default function Login() {
               Sign in to get started
             </p>
             <button
-              onClick={() => loginWithRedirect()}
+              onClick={() =>
+                loginWithRedirect({
+                  authorizationParams: { prompt: "login" },
+                })
+              }
               className="btn btn-primary"
               style={{ width: "100%", padding: "12px" }}
             >
@@ -26,7 +31,7 @@ export default function Login() {
           <>
             <p style={{ marginBottom: "1rem" }}>Welcome back, {user?.name}!</p>
             <button
-              onClick={() => logout()}
+              onClick={() => logout({ logoutParams: { returnTo } })}
               className="btn btn-secondary"
               style={{ width: "100%", padding: "12px" }}
             >
