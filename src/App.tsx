@@ -41,7 +41,7 @@ function PrivateRoute({ children }: { children: React.ReactElement }) {
 function App() {
   return (
     <TaskProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route
