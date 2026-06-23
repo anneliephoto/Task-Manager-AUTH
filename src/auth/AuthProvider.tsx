@@ -7,8 +7,8 @@ export const AuthProviderWrapper = ({
 }) => {
   return (
     <Auth0Provider
-      domain="YOUR_DOMAIN"
-      clientId="YOUR_CLIENT_ID"
+      domain="dev-v6rqw0sm8ri4r08s.us.auth0.com"
+      clientId="9N0SeVebQ5Dm20TN0EMhSA2sq7BjPpXO"
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}

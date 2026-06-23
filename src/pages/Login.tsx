@@ -16,11 +16,7 @@ export default function Login() {
               Sign in to get started
             </p>
             <button
-              onClick={() =>
-                loginWithRedirect({
-                  authorizationParams: { prompt: "login" },
-                })
-              }
+              onClick={() => loginWithRedirect()}
               className="btn btn-primary"
               style={{ width: "100%", padding: "12px" }}
             >
